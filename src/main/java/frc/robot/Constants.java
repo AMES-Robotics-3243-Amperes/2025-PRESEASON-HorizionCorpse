@@ -4,7 +4,11 @@
 
 package frc.robot;
 
+import java.util.Vector;
+
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
+import frc.robot.subsystems.ThriftyModule;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -44,15 +48,29 @@ public final class Constants {
     public static final double kDrivekI = 0.0;
     public static final double kDrivekD = 0.0;
 
-    public static final double kTurnkP = 5.0;
+    public static final double kTurnkP = 4.0;
     public static final double kTurnkI = 0.0;
     public static final double kTurnkD = 0.0;
 
   
-    public static final double kMaxSpeedMetersPerSecond = 3.0;     
+    public static final double kMaxSpeedMetersPerSecond = 0.5;     
     public static final double kMaxAngularSpeedRadPerSec = Math.PI; 
+    
+    public static final int kFrontLeftDrivingCanId = 1;
+    public static final int kRearLeftDrivingCanId = 5;
+    public static final int kFrontRightDrivingCanId = 3;
+    public static final int kRearRightDrivingCanId = 7;
 
+    public static final int kFrontLeftTurningCanId = 2;
+    public static final int kRearLeftTurningCanId = 6;
+    public static final int kFrontRightTurningCanId = 4;
+    public static final int kRearRightTurningCanId = 8;
 
+    public static final Rotation2d kFrontLeftOffset = Rotation2d.fromDegrees(Units.rotationsToDegrees(0.244703)-45); //3
+    public static final Rotation2d kFrontRightOffset = Rotation2d.fromDegrees(Units.rotationsToDegrees(0.859438)+225); //0
+    public static final Rotation2d kRearLeftOffset = Rotation2d.fromDegrees(Units.rotationsToDegrees(0.376380)+45); //2
+    public static final Rotation2d kRearRightOffset = Rotation2d.fromDegrees(Units.rotationsToDegrees(0.689731)-225); //1
+    
   }
 
   public static final int kDriverControllerPort = 0;

@@ -16,16 +16,29 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.ThriftyModule;
 
+import com.ctre.phoenix6.swerve.SwerveModule;
 import com.studica.frc.AHRS;
 import com.studica.frc.AHRS.NavXComType;
 import edu.wpi.first.math.geometry.Rotation2d;
 
 
 public class SubsystemThriftySwerveDrivetrain extends SubsystemBase {
-  private final ThriftyModule m_frontLeft  = new ThriftyModule(1, 2, 0, Rotation2d.fromRotations(0.265429));
-  private final ThriftyModule m_frontRight = new ThriftyModule(3, 4, 1, Rotation2d.fromRotations( 0.192577));   
-  private final ThriftyModule m_backLeft   = new ThriftyModule(5, 6, 2, Rotation2d.fromRotations(0.878503));
-  private final ThriftyModule m_backRight  = new ThriftyModule(7, 8,  3, Rotation2d.fromRotations(0.849766));
+
+   private final ThriftyModule m_frontLeft = new ThriftyModule(
+      DriveConstants.kFrontLeftDrivingCanId,
+      DriveConstants.kFrontLeftTurningCanId, 3, DriveConstants.kFrontLeftOffset);
+
+  private final ThriftyModule m_frontRight = new ThriftyModule(
+      DriveConstants.kFrontRightDrivingCanId,
+      DriveConstants.kFrontRightTurningCanId, 0, DriveConstants.kFrontRightOffset);
+
+  private final ThriftyModule m_rearLeft = new ThriftyModule(
+      DriveConstants.kRearLeftDrivingCanId,
+      DriveConstants.kRearLeftTurningCanId, 2, DriveConstants.kRearLeftOffset);
+
+  private final ThriftyModule m_rearRight = new ThriftyModule(
+      DriveConstants.kRearRightDrivingCanId,
+      DriveConstants.kRearRightTurningCanId, 1, DriveConstants.kRearRightOffset);
 
 
   private final AHRS imu = new AHRS(NavXComType.kMXP_SPI);
@@ -74,16 +87,18 @@ public class SubsystemThriftySwerveDrivetrain extends SubsystemBase {
     SwerveModuleState[] states = SwerveKinematics.toSwerveModuleStates(chassisSpeeds);
     m_frontLeft.setDesiredState(states[0]);
     m_frontRight.setDesiredState(states[1]);
-    m_backLeft.setDesiredState(states[2]);
-    m_backRight.setDesiredState(states[3]);
+    m_rearLeft.setDesiredState(states[2]);
+    m_rearRight.setDesiredState(states[3]);
   }
   
     @Override
     public void periodic() {
+  
       m_frontLeft.update();
       m_frontRight.update();
-      m_backLeft.update();
-      m_backRight.update();
+      m_rearLeft.update();
+      m_rearRight.update();
+      
   }
 
 }

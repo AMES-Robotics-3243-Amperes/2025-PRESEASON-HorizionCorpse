@@ -12,7 +12,7 @@ import frc.robot.subsystems.ThriftyModule;
 public class CommandThriftyDriveTeleop extends Command {
 
   private final SubsystemThriftySwerveDrivetrain swerveDrivetrain;
-  private XboxController m_driverController = new XboxController(0);
+  private XboxController m_driverController;
   
     public CommandThriftyDriveTeleop(SubsystemThriftySwerveDrivetrain swerveDrivetrain,XboxController controller) {
       this.swerveDrivetrain = swerveDrivetrain;
@@ -25,9 +25,9 @@ public class CommandThriftyDriveTeleop extends Command {
 
   @Override
   public void execute() {
-    double xInput = -m_driverController.getLeftY();  
-    double yInput = -m_driverController.getLeftX();  
-    double rotInput = -m_driverController.getRightX(); 
+    double xInput = m_driverController.getLeftY();  
+    double yInput = m_driverController.getLeftX();  
+    double rotInput = m_driverController.getRightX(); 
 
     double vx = xInput * DriveConstants.kMaxSpeedMetersPerSecond;
     double vy = yInput * DriveConstants.kMaxSpeedMetersPerSecond;    

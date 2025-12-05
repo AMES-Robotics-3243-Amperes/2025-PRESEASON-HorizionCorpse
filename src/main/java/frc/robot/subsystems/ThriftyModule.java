@@ -127,6 +127,7 @@ public class ThriftyModule {
 
     // set wheel offset
     m_azimuthOffset = azimuthOffset;
+   
   }
 
   /**
@@ -154,14 +155,15 @@ public class ThriftyModule {
   public void setDesiredState(SwerveModuleState desiredState) {
     // :3 apply wheel angular offset
     SwerveModuleState offsetState = new SwerveModuleState();
-    offsetState.speedMetersPerSecond = desiredState.speedMetersPerSecond;
-    offsetState.angle = desiredState.angle.plus(m_azimuthOffset);
+      offsetState.speedMetersPerSecond = desiredState.speedMetersPerSecond;
+      offsetState.angle = desiredState.angle.plus(m_azimuthOffset);
     offsetState.optimize(azimuthPosition());
 
     m_drivingVelocitySetpointMetersPerSecond = offsetState.speedMetersPerSecond;
     m_azimuthSetpoint = offsetState.angle;
 
     this.drivingWithRawVoltage = false;
+    
   }
 
   /**
@@ -190,7 +192,7 @@ public class ThriftyModule {
       m_drivingTalonFX.setControl(request.withSlot(0));
     }
 
-    double azimuthOutput = m_azimuthPIDController.calculate(azimuthPosition().getRadians(),
+    double azimuthOutput = m_azimuthPIDController.calculate(MathUtil.angleModulus(azimuthPosition().getRadians()),
         MathUtil.angleModulus(m_azimuthSetpoint.getRadians()));
     m_azimuthSparkMax.setVoltage(Units.Volts.of(azimuthOutput));
 
