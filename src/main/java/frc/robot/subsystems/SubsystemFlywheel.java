@@ -18,7 +18,7 @@ import frc.robot.Constants;
 
 public class SubsystemFlywheel extends SubsystemBase {
 
-  private final SparkBase m_flywheelMotor; 
+  private final SparkMax m_flywheelMotor; 
 
   public SubsystemFlywheel() {
     m_flywheelMotor = new SparkMax(Constants.FlyWheelConstants.kFlyWheelId, MotorType.kBrushless);
