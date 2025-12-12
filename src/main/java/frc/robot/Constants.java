@@ -53,7 +53,7 @@ public final class Constants {
     public static final double kTurnkD = 0.0;
 
   
-    public static final double kMaxSpeedMetersPerSecond = 0.5;     
+    public static final double kMaxSpeedMetersPerSecond = 1.0;     
     public static final double kMaxAngularSpeedRadPerSec = Math.PI; 
     
     public static final int kFrontLeftDrivingCanId = 1;
@@ -76,13 +76,10 @@ public final class Constants {
 
   public static final int kFlyWheelId = 9;
 
-  public static final double kFlyWheelkP = 0.0;
-  public static final double kFlyWheelkI = 0.0;
-  public static final double kFlyWheelkD = 0.0;
-  public static final double kFlyWheelkff = 0.0;
+  
 
   }
-  public static final int kDriverControllerPort = 0;
+  
 
   
 }

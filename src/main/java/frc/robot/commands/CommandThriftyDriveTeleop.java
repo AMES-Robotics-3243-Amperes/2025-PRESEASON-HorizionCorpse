@@ -12,9 +12,9 @@ import frc.robot.subsystems.ThriftyModule;
 public class CommandThriftyDriveTeleop extends Command {
 
   private final SubsystemThriftySwerveDrivetrain swerveDrivetrain;
-  private XboxController m_driverController;
+  private CommandXboxController m_driverController;
   
-    public CommandThriftyDriveTeleop(SubsystemThriftySwerveDrivetrain swerveDrivetrain,XboxController controller) {
+    public CommandThriftyDriveTeleop(SubsystemThriftySwerveDrivetrain swerveDrivetrain, CommandXboxController controller) {
       this.swerveDrivetrain = swerveDrivetrain;
       this.m_driverController = controller;
 
