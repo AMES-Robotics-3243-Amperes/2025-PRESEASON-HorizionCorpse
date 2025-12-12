@@ -72,7 +72,16 @@ public final class Constants {
     public static final Rotation2d kRearRightOffset = Rotation2d.fromDegrees(Units.rotationsToDegrees(0.689731)-225); //1
     
   }
+  public static class FlyWheelConstants {
 
+  public static final int kFlyWheelId = 9;
+
+  public static final double kFlyWheelkP = 0.0;
+  public static final double kFlyWheelkI = 0.0;
+  public static final double kFlyWheelkD = 0.0;
+  public static final double kFlyWheelkff = 0.0;
+
+  }
   public static final int kDriverControllerPort = 0;
 
   
