@@ -12,7 +12,6 @@ import frc.robot.subsystems.SubsystemFlywheel;
 
 public class CommandFlywheel extends Command {
  private final SubsystemFlywheel subsystemFlywheel;
-
   public CommandFlywheel(SubsystemFlywheel subsystemFlywheel) {
     this.subsystemFlywheel = subsystemFlywheel;
     addRequirements(subsystemFlywheel);
@@ -20,7 +19,7 @@ public class CommandFlywheel extends Command {
 
   @Override
   public void execute() {
-      subsystemFlywheel.setSpeed(1.0);
+      subsystemFlywheel.setSpeed(5);
   }
  
   @Override
