@@ -31,16 +31,12 @@ public class RobotContainer {
         )
     );
 
-    m_subsystemFlyWheel.setDefaultCommand(
-        new CommandFlywheel(m_subsystemFlyWheel,
-         m_driverController
-         )
-    );
+    
   }
    
   
 
   private void configureBindings() {
-
+    m_driverController.b().whileTrue(new CommandFlywheel(m_subsystemFlyWheel));
   }
 }

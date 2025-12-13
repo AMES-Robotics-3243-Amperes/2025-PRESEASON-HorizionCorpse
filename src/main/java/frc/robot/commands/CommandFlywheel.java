@@ -12,21 +12,15 @@ import frc.robot.subsystems.SubsystemFlywheel;
 
 public class CommandFlywheel extends Command {
  private final SubsystemFlywheel subsystemFlywheel;
-private final CommandXboxController m_driverController;
 
-  public CommandFlywheel(SubsystemFlywheel subsystemFlywheel, CommandXboxController controller) {
+  public CommandFlywheel(SubsystemFlywheel subsystemFlywheel) {
     this.subsystemFlywheel = subsystemFlywheel;
-    this.m_driverController = controller;
     addRequirements(subsystemFlywheel);
   }
 
   @Override
   public void execute() {
-    if (m_driverController.b().getAsBoolean()) {
-      subsystemFlywheel.setSpeed(1.0);   
-    } else {
-      subsystemFlywheel.setSpeed(0.0);
-    }
+      subsystemFlywheel.setSpeed(1.0);
   }
  
   @Override
